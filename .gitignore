@@ -1,0 +1,10 @@
+/__pycache__
+/.vscode
+/data
+/model
+/runs
+/__pycache__
+/env
+*.pyc
+/.idea
+
