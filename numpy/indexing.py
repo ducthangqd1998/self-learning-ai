@@ -44,7 +44,7 @@ print(x[row, col])
 #
 # Partial Sorts: Partitioning
 
-x_1 = np.array([8, 2, 3, 1, 6, 5, 4, 3, 2, 1, 5, 11, 33, 2])
+x_1 = np.array([8, 2, 3, 1, 6, 5, 4, 3, 2, 1, 5, 11, 33, 2])Developer 
 # Nếu các bạn đã làm quen với quicksort chẳng hạn đã quen với khái niệm par(partitioning).
 # Mục tiêu của biến này là chia mảng thành hai mảng sao cho mảng bên trai nhỏ hơn par và ngc lại,
 # Điều này làm ta ko quan tâm là có dc sắp xếp một cách có thứ tự hay ko, chỉ cần chia đúng mảng là dc
