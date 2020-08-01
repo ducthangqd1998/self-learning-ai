@@ -14,7 +14,6 @@ def histogram():
     #          edgecolor='none')
     # plt.show()
 
-
     x1 = np.random.normal(0, 0.8, 1000)
     x2 = np.random.normal(-2, 1, 1000)
     x3 = np.random.normal(3, 2, 1000)
