@@ -7,4 +7,5 @@
 /env
 *.pyc
 /.idea
+**/.ipynb_checkpoints/
 
