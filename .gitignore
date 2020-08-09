@@ -8,4 +8,5 @@
 *.pyc
 /.idea
 **/.ipynb_checkpoints/
+/image processing/Exercises/Task 3/test.py
 
