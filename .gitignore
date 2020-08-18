@@ -1,12 +1,29 @@
-/__pycache__
-/.vscode
-/data
-/model
-/runs
-/__pycache__
-/env
-*.pyc
-/.idea
-**/.ipynb_checkpoints/
-/image processing/Exercises/Task 3/test.py
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# log file
+*.log
+
+# model weight file
+*.pth
+
+# Mac
+.DS_Store
+
+# pickle
+*.pkl
 
