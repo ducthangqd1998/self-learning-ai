@@ -26,4 +26,6 @@ venv.bak/
 
 # pickle
 *.pkl
+.idea/
+.vscode/
 
