@@ -1,5 +1,6 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
+Deep Learning/CNN/Unet/dataset/
 *.py[cod]
 *$py.class
 
@@ -26,8 +27,8 @@ venv.bak/
 
 # pickle
 *.pkl
-.idea/
-.vscode/
+/SSSSSSSSSSS.idea/
+/.vscode/
 
 # User-specific stuff:
 .idea/workspace.xml
