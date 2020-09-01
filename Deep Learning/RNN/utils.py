@@ -6,8 +6,7 @@ def softmax(x):
 
 
 def main():
-    print(softmax([1, 2, 3, 4]))
-
+    print(np.tanh([[1, 2],[1, 2]]))
 
 if __name__ == '__main__':
     main()

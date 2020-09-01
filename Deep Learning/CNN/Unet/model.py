@@ -28,18 +28,32 @@ def down_sample(filters, x):
 
 
 def up_sample(filters, x, x1):
+    print(filters)
+    x = Conv2D(filters=filters, 
+                kernel_size=(2,2),
+                padding='same',
+                activation='relu')(x)
+
     x = UpSampling2D((2, 2))(x)
-    x = Concatenate()(x1, x)
+    width, height = x.shape[1], x.shape[2]
+
+    start_width = (width - x.shape[1]) // 2
+    start_height = (height - x.shape[2]) // 2
+
+    x = Concatenate()([x1[:, start_width:(width+start_width), start_height:(height+start_height), :], x])
     out = conv_block(filters, x)
+    return out
 
 class Unet(Model):
     def __init__(self):
         super(Unet, self).__init__()
-        pool = MaxPool2D((2,2))
+        self.backbone = tf.keras.applications.ResNet50(input_shape=(224, 224, 3),
+                                                    include_top=False,
+                                                    weights='imagenet')
     def call(self, x):
         # Encoder 
-        print(x)
-        down1 = conv_block(64, x)
+        ft = self.backbone(x)
+        down1 = conv_block(64, ft)
         down2 = down_sample(128, down1)
         down3 = down_sample(256, down2)
         down4 = down_sample(512, down3)
@@ -54,11 +68,11 @@ class Unet(Model):
         out = Conv2D(filters=1, 
                     kernel_size=(1,1),
                     padding='valid',
-                    activation='sigmoid')
+                    activation='sigmoid')(up4)
 
         return out
 
-image = np.zeros((1, 572, 572, 3))
+image = np.zeros((1, 224, 224, 3))
 img_tensor = tf.image.convert_image_dtype(image, dtype=tf.float16)
 
 model = Unet()
