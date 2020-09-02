@@ -50,11 +50,11 @@ class Unet(Model):
         self.backbone = tf.keras.applications.ResNet50(input_shape=(224, 224, 3),
                                                     include_top=False,
                                                     weights='imagenet')
+        self.down1 = conv_block
     def call(self, x):
         # Encoder 
-        ft = self.backbone(x)
-        down1 = conv_block(64, ft)
-        down2 = down_sample(128, down1)
+        down1 = self.down1(64, x)
+        down2 = down_sample(128, down1) 
         down3 = down_sample(256, down2)
         down4 = down_sample(512, down3)
         down5 = down_sample(1024, down4)
@@ -72,13 +72,22 @@ class Unet(Model):
 
         return out
 
-image = np.zeros((1, 224, 224, 3))
-img_tensor = tf.image.convert_image_dtype(image, dtype=tf.float16)
+    def summary(self):
+        x = tf.keras.layers.Input(shape=(572, 572, 3))
+        return Model(inputs=[x], outputs=self.call(x))
+
 
 model = Unet()
-model(img_tensor)
-model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-model.summary()
+model_func = model.summary()
+model_func.summary()
+# image = np.zeros((1, 224, 224, 3))
+# img_tensor = tf.image.convert_image_dtype(image, dtype=tf.float16)
+
+# model = Unet()
+# model(img_tensor)
+# model_func = model.model()
+# model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+# model.summary()
 
 
         
