@@ -24,7 +24,7 @@ test_ = list()
 for i in train:
     train_.append(i.split('/')[-1])
 
-for i in test_:
+for i in test:
     test_.append(i.split('/')[-1])
 
 print(len(train_))
