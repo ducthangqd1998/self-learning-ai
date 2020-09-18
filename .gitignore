@@ -27,7 +27,7 @@ venv.bak/
 
 # pickle
 *.pkl
-/SSSSSSSSSSS.idea/
+/.idea/
 /.vscode/
 
 # User-specific stuff:
