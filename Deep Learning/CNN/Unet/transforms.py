@@ -149,29 +149,43 @@ class ChangeBrightness(object):
         return img, mask
 
 
-
+import json
+from config import *
+from os.path import join
 def main():
-    start_time = time.time()
-    img = cv2.imread('dataset/Original/Testing/Frame00010-org.jpg')
-    mask = cv2.imread('dataset/MASKS/Testing/Frame00010-org.png')
+    with open('dataset/data.json', 'r') as f:
+        arr = json.loads(f.read())
 
-
-    img, mask = Resize(dim=(256, 256))(img, mask)
-    img, mask = RandomRotate()(img, mask)
-    img, mask = ChangeBrightness()(img, mask)
-    img, mask = RandomGaussianBlur()(img, mask)
-    img, mask = RandomCrop(dim=(224, 224))(img, mask)
-    img, mask = Normalize(std=[0.229, 0.224, 0.225],
-                          mean=[0.485, 0.456, 0.406])(img, mask)
-    # img, mask = ToTensor()(img, mask)
-    print("Execute time:", time.time() - start_time)
-
-    # hair = cv2.bitwise_and(img, img, mask=mask[:, :, 0])
-    cv2.imshow('img', img)
-    cv2.imshow('mask', mask)
-    # cv2.imshow('hair', hair)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    data = arr['test']
+    for img_name in data:
+        print(img_name)
+        img_path = join(img_paths, 'Testing', img_name)
+        mask_path = join(mask_paths, 'Testing', img_name.split('.')[0] + '.png')
+        print(mask_path, img_path)
+        img = cv2.imread(img_path)
+        mask = cv2.imread(mask_path)
+        img, mask = Resize(dim=(256, 256))(img, mask)
+    # start_time = time.time()
+    # img = cv2.imread('dataset/Original/Testing/Frame00010-org.jpg')
+    # mask = cv2.imread('dataset/MASKS/Testing/Frame00010-org.png')
+    #
+    #
+    # img, mask = Resize(dim=(256, 256))(img, mask)
+    # img, mask = RandomRotate()(img, mask)
+    # img, mask = ChangeBrightness()(img, mask)
+    # img, mask = RandomGaussianBlur()(img, mask)
+    # img, mask = RandomCrop(dim=(224, 224))(img, mask)
+    # img, mask = Normalize(std=[0.229, 0.224, 0.225],
+    #                       mean=[0.485, 0.456, 0.406])(img, mask)
+    # # img, mask = ToTensor()(img, mask)
+    # print("Execute time:", time.time() - start_time)
+    #
+    # # hair = cv2.bitwise_and(img, img, mask=mask[:, :, 0])
+    # cv2.imshow('img', img)
+    # cv2.imshow('mask', mask)
+    # # cv2.imshow('hair', hair)
+    # cv2.waitKey(0)
+    # cv2.destroyAllWindows()
 
 
 if __name__ == '__main__':
