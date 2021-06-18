@@ -24,7 +24,7 @@ Markdown==3.2.2
 matplotlib==3.3.0
 numpy==1.16.2
 oauthlib==3.1.0
-opencv-python==3.4.0.14
+opencv-python
 opt-einsum==3.3.0
 Pillow==7.2.0
 promise==2.3
@@ -47,8 +47,6 @@ tensorflow-datasets==3.2.1
 tensorflow-estimator==2.3.0
 tensorflow-metadata==0.23.0
 termcolor==1.1.0
-tf-estimator-nightly==2.4.0.dev2020091601
-tf-nightly==2.4.0.dev20200916
 threadpoolctl==2.1.0
 torch==1.6.0
 torchvision==0.7.0

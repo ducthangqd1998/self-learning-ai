@@ -1,8 +1,8 @@
 import numpy as np
 
-x1 = np.random.randint(10, size=6)
-x2 = np.random.randint(10, size=(3, 4))
-x3 = np.random.randint(10, size=(3, 4, 5))
+# x1 = np.random.randint(10, size=6)
+# x2 = np.random.randint(10, size=(3, 4))
+# x3 = np.random.randint(10, size=(3, 4, 5))
 
 # print("x3 ndim: ", x3.ndim)   # Số chiều của mảng numpy
 # print("x3 shape:", x3.shape)  # Định dạng của mảng numpy
@@ -10,7 +10,7 @@ x3 = np.random.randint(10, size=(3, 4, 5))
 
 # print("dtype:", x3.dtype)     # Kiểu dữ liệu của mảng
 #
-arr = np.random.randint(low=0, high=10, size=10)
+# arr = np.random.randint(low=0, high=10, size=10)
 #
 # Phần tử đầu tiên của mảng numpy
 # print(arr)
@@ -44,18 +44,18 @@ arr = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 # # # Lấy một mảng con cố định
 # print(arr[4:7])
 #
-# # Lấy các phần tử chia hết cho 2
+# # Lấy các phần tử bắt đầu từ vị trí index = 2, và index += 3
 # print(arr[2::3])
 #
-# # Lấy các phần tủ không chia hết cho 2, bắt đầu là 1
+# # Lấy các phần tủ bắt đầu từ vị trí index = 1, và index += 2
 # print(arr[1::2])
 #
 # # Đảo ngược mảng numpy
 # print(arr[::-1])
-#
-arr = np.array([[12,  5,  2,  4],
-                [ 7,  6,  8,  8],
-                [ 1,  6,  7,  7]])
+# #
+# arr = np.array([[12,  5,  2,  4],
+#                 [ 7,  6,  8,  8],
+#                 [ 1,  6,  7,  7]])
 #
 # 2 hàng, 3 cột
 # print(arr[:2, :3])
